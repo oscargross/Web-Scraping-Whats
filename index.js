@@ -57,7 +57,7 @@ const dataFinal = '01/12/2020'
 async function main() {
     try {
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             args: ["--no-sandbox"]
         });
         const page = await browser.newPage();
