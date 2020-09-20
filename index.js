@@ -42,8 +42,7 @@ app.use((req,res,next) => {
 
 
 app.get("/" , (req, res) => {
-    res.send("Ola Barbara meu amorr");
-    const puppeteer = require('puppeteer');
+    var page;
 
     (async () => {
 
@@ -53,9 +52,11 @@ app.get("/" , (req, res) => {
         const page = await browser.newPage();
 
         await page.goto('https://www.google.com/');
-        await page.waitFor('input[name="ctl00$ContentPlaceHolder1$txtLogin"]');
+        await page.waitFor(20000);
         await browser.close();
     })();
+    res.send(page);
+
 })
 
 
