@@ -7,5 +7,5 @@ app.listen(porta, () => {
 })
 
 app.get("/" , (req, res) => {
-    res.send("Ola Barbara meu amor");
+    res.send("Ola Barbara meu amorr");
 })
