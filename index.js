@@ -40,7 +40,6 @@ app.use((req,res,next) => {
 
 })
 
-
 app.get("/" , (req, res) => {
   
     res.send("oii");
@@ -52,7 +51,7 @@ app.get("/" , (req, res) => {
 
 async function main() {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ["--no-sandbox"]
     });
     const tab = await browser.newPage();
