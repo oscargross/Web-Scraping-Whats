@@ -42,23 +42,26 @@ app.use((req,res,next) => {
 
 
 app.get("/" , (req, res) => {
-    var page;
+  
+    res.send("oii");
+    main();
 
-    (async () => {
-
-        const browser = await puppeteer.launch({
-            headless:false
-        });
-        const page = await browser.newPage();
-
-        await page.goto('https://www.google.com/');
-        await page.waitFor(20000);
-        await browser.close();
-    })();
-    res.send(page);
 
 })
 
+
+async function main() {
+    const browser = await puppeteer.launch({
+      headless: false,
+      args: ["--no-sandbox"]
+    });
+    const tab = await browser.newPage();
+    const text = await (await tab.goto("http://example.com/")).text();
+    console.log(text);
+    console.log("done");
+    browser.close();
+  }
+  
 
 
 //Routes:
