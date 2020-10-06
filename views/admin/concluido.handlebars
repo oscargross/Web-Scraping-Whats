@@ -1,0 +1,38 @@
+<button class="btn" type="submit"></button>
+<p>OLa Mundo</p>
+<p>Aplique o Scan de seu Whats no QRCode Abaixo</p>
+<p>Caso a imagem não aparecer, clique na tecla RELOAD abaixo, ou recarreque a página</p>
+
+<button class="btn" id="clickk">RELOAD</button>
+
+<p id="number">10</p>
+
+<img id="qrcode" src="/img/screen.jpg" alt="Qcode">
+<script>
+    
+    document.getElementById('clickk').onclick = () => {
+
+        location.reload()
+
+}      
+</script>
+<script>
+    
+
+
+var intervalo = window.setInterval(() => {
+    var a = document.getElementById("number").textContent
+    document.getElementById("number").innerHTML=a-1;
+}, 1000);
+
+window.setTimeout(() => {
+    clearInterval(intervalo);
+    document.getElementById("number").innerHTML=Pressione a tecla RELOAD para carregar o QRCode;
+
+}, 10000);
+
+
+
+
+</script>
+
