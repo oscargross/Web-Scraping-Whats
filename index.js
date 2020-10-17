@@ -6,7 +6,7 @@ const admin = require('./routes/admin')
 const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
-
+//const browser = require ('./browser')
 const puppeteer = require('puppeteer');
 
 
@@ -47,8 +47,13 @@ app.get("/", (req, res) => {
 
     res.send("oii");
     main();
+    res.redirect('/aqui')
 
 })
+
+app.get('/', ((res, req) => {
+    res.send("ola")
+}))
 
 const dataInicial = '01/01/2020'
 const dataFinal = '01/12/2020'
@@ -56,8 +61,9 @@ const dataFinal = '01/12/2020'
 
 async function main() {
     try {
+        
         const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: ["--no-sandbox"]
         });
         const page = await browser.newPage();
@@ -105,6 +111,19 @@ async function main() {
             console.log(numberDDD);
             return numberDDD;
         }
+
+        async function enviarWhats(mensagem, numberDDD){
+            const page2 = await browser.newPage();    
+        
+            await page2.goto('https://web.whatsapp.com/send?phone='+numberDDD+'&text='+mensagem, {waitUntil:'domcontentloaded'});
+            await page2.waitForSelector('#main > footer > div._3ee1T._1LkpH.copyable-area > div:nth-child(3) > button > span');
+            await page2.click('#main > footer > div._3ee1T._1LkpH.copyable-area > div:nth-child(3) > button > span');
+            await page2.waitForSelector('#main > div._3h-WS > div > div > div.z_tTQ > div:nth-child(11) > div > div > div > div._2frDn > div > div > span > svg');
+            await page.waitForSelector('input[name="a"]');
+            await browser.close();
+    
+        }
+    
 
 
 
