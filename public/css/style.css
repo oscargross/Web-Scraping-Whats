@@ -1,5 +1,6 @@
 p{
     color: #F90;
+    font-size: 30px;
 }
 
 #qrcode{
@@ -7,12 +8,20 @@ p{
     height: 100%;
 }
 
-form {
+form{
     margin: 0 auto;
     width: 400px;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
+}
+.load{
+    margin: 0 auto;
+    width: 40%;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    text-align: center;
 }
 
 #img {
