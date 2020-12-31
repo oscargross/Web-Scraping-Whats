@@ -14,3 +14,18 @@ a {
 * {
   box-sizing: border-box;
 }
+/* .campo select option {
+  padding-right: 10px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  background: #FFC;
+} */
+
+/* .campo {
+  color: #000;
+  display: inline-block;
+  margin-right: 10px;
+} */
